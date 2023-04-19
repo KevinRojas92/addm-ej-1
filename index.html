@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8" />
+	<title>Ejercicio 1</title>
+
+	<script src="scripts/vue.js"></script>
+	<link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+	<div class="contenedor">
+		<h1 v-once>{{titulo}}</h1>
+
+		<p v-once>{{intro}}</p>
+
+		<ul>
+			<li v-for="(item, key) in juegos" v-if="item.calificacion >= 6">
+				<h2>{{item.nombre}}: {{item.anio}}</h2>
+								
+				<img :src="item.portada" :alt="item.alt"/>
+
+				<p v-for="key of item.consola">{{key}}</p>
+
+				<p :class="item.calificacion >= 8 ? 'green' : 'red'">{{key.id}}: {{item.calificacion}}</p>
+			</li>
+		</ul>
+	</div>
+
+	<script src="scripts/app.js"></script>
+</body>
+</html>
